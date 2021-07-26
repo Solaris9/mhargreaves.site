@@ -17,6 +17,7 @@
 
     let shouldShow = true;
     let div: HTMLElement;
+    let footer: HTMLElement;
 
     onMount(() => {
         setTimeout(() => (shouldShow = false), 1500);
@@ -59,6 +60,8 @@
             <View name="contact"><Contact /></View>
         </div>
     </div>
+
+    <footer bind:this={footer} transition:fade={{ delay: 500 }}>Created by Solaris9 (Malachi Hargreaves) • <a href="https://github.com/Solaris9/mhargreaves.site">source on github.com</a></footer>
 {/if}
 
 <style>
@@ -74,9 +77,9 @@
 
     :global(body) {
         background-color: var(--darker-gray);
+        height: 100%;
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
-            'Helvetica Neue', sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
         color: white;
     }
 
@@ -89,6 +92,7 @@
 
     .main {
         display: flex;
+        min-height: calc(100vh - 50px);
     }
 
     .buttons {
@@ -135,5 +139,16 @@
         :global(body) {
             margin-right: 15px;
         }
+    }
+
+    footer {
+        font-size: larger;
+        text-align: center;
+        height: 50px;
+    }
+
+    a {
+        color:var(--fox-orange);
+        text-decoration: none;
     }
 </style>

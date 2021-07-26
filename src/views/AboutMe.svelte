@@ -18,7 +18,14 @@
                 'Two careers I wish to be in is game development with C# and web development creating full fledge websites',
                 'Along with the backend should either require.',
                 'In all said, programming has been very fun and enjoyable to learn',
-                'I plan to continue to expand my knowledge of it'
+                'I plan to continue to expand my knowledge of it',
+            ],
+        },
+        {
+            name: "the site",
+            list: [
+                'I\'ll be honest, I\'ve used quite a few hacky solutions to make this site work',
+                'you can find the source below on the footer'
             ],
         },
     ];
@@ -43,7 +50,7 @@
     }
 
     .title {
-        padding: 40px 0 40px 0;
+        padding: 40px 0 20px 0;
         color: var(--fox-orange);
         font-size: xx-large;
         font-size: 400;

@@ -18,7 +18,7 @@
 </script>
 
 <div class:intro transition:fade>
-    <div>
+    <div class:inner={intro}>
         <div class="mini">Hi, I'm</div>
         <div class="header orange">Malachi Hargreaves</div>
         <div class="mini">a</div>
@@ -39,10 +39,19 @@
 
 <style>
     .intro {
+        display: flex;
+
         justify-content: center;
         text-align: center;
-        display: flex;
+
         padding-top: 35vh;
+        left: 50%;
+        position: absolute;
+    }
+
+    .inner {
+        left: -50%;
+        position: relative;
     }
 
     .header {
