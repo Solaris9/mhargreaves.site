@@ -11,6 +11,7 @@
     import AboutMe from './views/AboutMe.svelte';
     import Projects from './views/Projects.svelte';
     import Commissions from './views/Commissions.svelte';
+    import Socials from './views/Socials.svelte';
     import Contact from './views/Contact.svelte';
     import Intro from './components/Intro.svelte';
 
@@ -35,7 +36,7 @@
 </script>
 
 {#if shouldShow}
-    <Intro/>
+    <Intro />
 {:else}
     <div class="main" transition:fade={{ delay: 500 }}>
         <button class="toggle" on:click={openButtons}>
@@ -54,7 +55,7 @@
             <View name="aboutme"><AboutMe /></View>
             <View name="projects"><Projects /></View>
             <View name="commissions"><Commissions /></View>
-            <View name="socials"><Contact /></View>
+            <View name="socials"><Socials /></View>
             <View name="contact"><Contact /></View>
         </div>
     </div>
@@ -64,9 +65,9 @@
     /* variables */
 
     :global(:root) {
-        --fox-orange: #FF652F;
-        --dark-gray: #1F2833;
-        --darker-gray: #0B0C10;
+        --fox-orange: #ff652f;
+        --dark-gray: #1f2833;
+        --darker-gray: #0b0c10;
     }
 
     /* site */
@@ -74,7 +75,8 @@
     :global(body) {
         background-color: var(--darker-gray);
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+            'Helvetica Neue', sans-serif;
         color: white;
     }
 
@@ -100,9 +102,9 @@
         height: 100vh;
     }
 
-	.content {
-		margin-left: 175px;
-	}
+    .content {
+        margin-left: 175px;
+    }
 
     .toggle {
         display: none;
@@ -126,8 +128,12 @@
             box-shadow: 2px 2px 2px grey;
         }
 
-		.content {
-			margin: unset;
-		}
+        .content {
+            margin: unset;
+        }
+
+        :global(body) {
+            margin-right: 15px;
+        }
     }
 </style>

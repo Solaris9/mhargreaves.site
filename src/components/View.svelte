@@ -27,13 +27,13 @@
 <style>
     .view {
         display: none;
-        margin: 100px 0 100px 75px;
+        margin: 75px 0 100px 50px;
         flex-direction: column;
     }
 
     @media only screen and (max-width: 700px) {
         .view {
-            margin: 75px 0 0 0;
+            margin: 75px 0 0 -30px;
         }
     }
 </style>
