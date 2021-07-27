@@ -1,45 +1,58 @@
-<script lang="ts">
-    import { onMount } from 'svelte';
-    import { fade } from 'svelte/transition';
-
-    import Icon from 'svelte-fa';
-    import { faBars } from '@fortawesome/free-solid-svg-icons';
-
-    import Button, { buttons, set as setButton } from './components/Button.svelte';
-    import View, { set as setView } from './components/View.svelte';
+<script lang="ts" context="module">
+    import { writable } from 'svelte/store';
+    import Button, { buttons, set } from './components/Button.svelte';
 
     import AboutMe from './views/AboutMe.svelte';
     import Projects from './views/Projects.svelte';
     import Commissions from './views/Commissions.svelte';
     import Socials from './views/Socials.svelte';
     import Contact from './views/Contact.svelte';
+
+    export const view = writable<string>(null);
+
+    const views = {
+        aboutme: AboutMe,
+        projects: Projects,
+        commissions: Commissions,
+        socials: Socials,
+        contact: Contact,
+    };
+</script>
+
+<script lang="ts">
+    import { onMount } from 'svelte';
+    import { fade, fly } from 'svelte/transition';
+
+    import Icon from 'svelte-fa';
+    import { faBars } from '@fortawesome/free-solid-svg-icons';
+
     import Intro from './components/Intro.svelte';
 
-    let shouldShow = true;
-    let div: HTMLElement;
-    let footer: HTMLElement;
+    let showIntro = true;
+    let showSite = false;
 
     onMount(() => {
-        setTimeout(() => (shouldShow = false), 1500);
+        setTimeout(() => (showIntro = false), 1500);
+        setTimeout(() => (showSite = true), 2000);
         setTimeout(() => {
             const name = window.location.hash.slice(1) || 'aboutme';
-
-            if (name in buttons) {
-                setButton(name);
-                setView(name);
-            }
+            if (name in buttons) set(name);
         }, 2000);
     });
+
+    let div: HTMLElement;
 
     function openButtons() {
         div.style.display = div.style.display == 'flex' ? 'none' : 'flex';
     }
 </script>
 
-{#if shouldShow}
+{#if showIntro}
     <Intro />
-{:else}
-    <div class="main" transition:fade={{ delay: 500 }}>
+{/if}
+
+{#if showSite}
+    <div class="main" transition:fade>
         <button class="toggle" on:click={openButtons}>
             <Icon icon={faBars} size="2x" />
         </button>
@@ -53,20 +66,28 @@
         </div>
 
         <div class="content">
-            <View name="aboutme"><AboutMe /></View>
-            <View name="projects"><Projects /></View>
-            <View name="commissions"><Commissions /></View>
-            <View name="socials"><Socials /></View>
-            <View name="contact"><Contact /></View>
+            {#key $view}
+                <div
+                    class="view"
+                    in:fly={{ x: 50, duration: 200, delay: 400 }}
+                    out:fly={{ x: 50, duration: 200, delay: 200 }}
+                >
+                    <svelte:component this={views[$view]} />
+                </div>
+            {/key}
         </div>
     </div>
 
-    <footer bind:this={footer} transition:fade={{ delay: 500 }}>Created by Solaris9 (Malachi Hargreaves) • <a href="https://github.com/Solaris9/mhargreaves.site">source on github.com</a></footer>
+    <footer transition:fade>
+        created by Solaris9 (Malachi Hargreaves) • <a
+            href="https://github.com/Solaris9/mhargreaves.site"
+            target="_blank">source on github.com</a
+        >
+    </footer>
 {/if}
 
 <style>
     /* variables */
-
     :global(:root) {
         --fox-orange: #ff652f;
         --dark-gray: #1f2833;
@@ -79,13 +100,9 @@
         background-color: var(--darker-gray);
         height: 100%;
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+            'Helvetica Neue', sans-serif;
         color: white;
-    }
-
-    :global(input, button, select, textarea) {
-        font-family: inherit;
-        font-size: inherit;
     }
 
     /* main  */
@@ -101,13 +118,22 @@
 
         flex-direction: column;
         justify-content: space-between;
-        justify-items: stretch;
 
         height: 100vh;
     }
 
     .content {
         margin-left: 175px;
+    }
+
+    .view {
+        margin: 75px 0 100px 50px;
+    }
+
+    @media only screen and (max-width: 700px) {
+        .view {
+            margin: 75px 0 0 -30px;
+        }
     }
 
     .toggle {
@@ -148,7 +174,7 @@
     }
 
     a {
-        color:var(--fox-orange);
+        color: var(--fox-orange);
         text-decoration: none;
     }
 </style>

@@ -53,7 +53,6 @@
         padding: 40px 0 20px 0;
         color: var(--fox-orange);
         font-size: xx-large;
-        font-size: 400;
     }
 
     @media only screen and (max-width: 700px) {

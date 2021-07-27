@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
     import { get, writable } from 'svelte/store';
-    import { set as setView } from "./View.svelte"
+    import { view } from '../App.svelte';
 
     export const buttons: Record<string, HTMLButtonElement> = {};
     export const current = writable<HTMLButtonElement>(null);
@@ -15,7 +15,7 @@
         if (active) active.disabled = false;
         button.disabled = true;
 
-        setView(name)
+        view.set(name)
 
         window.location.hash = `#${name}`;
         document.title = `Malachi Hargreaves - ${name}`
@@ -26,10 +26,7 @@
     export let name: string;
 </script>
 
-<button
-    bind:this={buttons[name]}
-    on:click={() => set(name)}
->
+<button bind:this={buttons[name]} on:click={() => set(name)}>
     <slot />
 </button>
 
@@ -46,9 +43,6 @@
         height: 100%;
 
         text-align: center;
-        justify-content: center;
-
-        background-color: unset;
         color: white;
         background-color: var(--dark-gray);
 

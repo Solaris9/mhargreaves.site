@@ -12,9 +12,7 @@
         "Canadian"
     ]
 
-    if (!intro) setInterval(() => {
-        index = ++index % titles.length
-    }, 2000)
+    if (!intro) setInterval(() => (index = ++index % titles.length), 2000)
 </script>
 
 <div class:intro transition:fade>
