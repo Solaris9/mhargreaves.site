@@ -11,7 +11,7 @@
     export const view = writable<string>(null);
 
     const views = {
-        "about me": AboutMe,
+        'about me': AboutMe,
         projects: Projects,
         // commissions: Commissions,
         socials: Socials,
@@ -36,7 +36,7 @@
         setTimeout(() => (showSite = true), 2000);
         setTimeout(() => {
             let name = window.location.hash.slice(1);
-            if (!(name in buttons)) name = "about me";
+            if (!(name in buttons)) name = 'about me';
 
             set(name);
         }, 2000);

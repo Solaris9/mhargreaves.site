@@ -1,6 +1,6 @@
 <script lang="ts">
-    import Icon from "svelte-fa";
-    import { faInfo } from "@fortawesome/free-solid-svg-icons";
+    import Icon from 'svelte-fa';
+    import { faInfo } from '@fortawesome/free-solid-svg-icons';
 
     type Project = {
         name: string;
@@ -19,11 +19,11 @@
             description: [
                 'Erela.JS is a audio client for Discord built with user simplicity in mind',
                 'it uses audio providers, those being Lavalink or FFMPEG to handle audio',
-                'this let\'s you choose how you want to scale your bot while keeping a standard.',
+                "this let's you choose how you want to scale your bot while keeping a standard.",
                 'Erela.JS is also very configurable, it offers many events, plugins, and audio sources',
-                'those being third party music platforms, Spotify or Deezer.'
+                'those being third party music platforms, Spotify or Deezer.',
             ],
-        }
+        },
     ];
 </script>
 
@@ -47,7 +47,7 @@
 
                     {#if collaborated}
                         <div class="text">
-                            <Icon icon={faInfo} size="1x" color="var(--fox-orange)" style="padding-right: 10px"/>
+                            <Icon icon={faInfo} size="1x" color="var(--fox-orange)" style="padding-right: 10px" />
                             I work with <a href="https://github.com/{collaborated}">@{collaborated}</a> on this project.
                         </div>
                     {/if}

@@ -15,10 +15,10 @@
         if (active) active.disabled = false;
         button.disabled = true;
 
-        view.set(name)
+        view.set(name);
 
         window.location.hash = `#${name}`;
-        document.title = `Malachi Hargreaves - ${name}`
+        document.title = `Malachi Hargreaves - ${name}`;
     }
 </script>
 
@@ -30,7 +30,7 @@
     <slot />
 </button>
 
-<style>    
+<style>
     button {
         font-size: x-large;
         text-decoration: unset;
@@ -46,14 +46,14 @@
         color: white;
         background-color: var(--dark-gray);
 
-        transition: background-color .2s, color .2s;
+        transition: background-color 0.2s, color 0.2s;
     }
 
     button:hover:not(:disabled) {
         color: var(--fox-orange);
         cursor: pointer;
-        
-        transition: background-color color .2s;
+
+        transition: background-color color 0.2s;
     }
 
     button:disabled {

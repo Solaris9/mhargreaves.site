@@ -22,10 +22,10 @@
             ],
         },
         {
-            name: "the site",
+            name: 'the site',
             list: [
-                'I\'ll be honest, I\'ve used quite a few hacky solutions to make this site work',
-                'you can find the source below on the footer'
+                "I'll be honest, I've used quite a few hacky solutions to make this site work",
+                'you can find the source below on the footer',
             ],
         },
     ];

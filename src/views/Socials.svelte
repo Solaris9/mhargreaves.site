@@ -30,13 +30,13 @@
             {#if url}
                 <a href="https://{url}" target="_blank">
                     <div class="icon">
-                        <Icon {icon} size="7x"/>
+                        <Icon {icon} size="7x" />
                     </div>
                     <div class="name">@{name}</div>
                 </a>
             {:else}
                 <div class="icon">
-                    <Icon {icon} size="7x"/>
+                    <Icon {icon} size="7x" />
                 </div>
                 <div class="name">@{name}</div>
             {/if}
@@ -73,17 +73,18 @@
     }
 
     .icon {
-        padding-bottom: 25px
+        padding-bottom: 25px;
     }
 
-    a, a:visited {
+    a,
+    a:visited {
         color: unset;
-        transition: color .2s ease;
+        transition: color 0.2s ease;
         text-decoration: none;
     }
 
     a:hover {
         color: var(--fox-orange);
-        transition: color .2s ease;
+        transition: color 0.2s ease;
     }
 </style>
