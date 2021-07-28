@@ -3,7 +3,7 @@
     export let intro = true;
 
     let index = 0;
-    let titles = ['Hobbyist Programmer', 'Backend Developer', 'Bad Frontend Developer', 'Furry', 'Artist', 'Canadian'];
+    let titles = ['Hobbyist Programmer', 'Backend Developer', 'Bad Frontend Developer', 'Furry', /*'Artist',*/ 'Canadian'];
 
     if (!intro) setInterval(() => (index = ++index % titles.length), 2000);
 </script>
