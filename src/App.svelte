@@ -11,11 +11,11 @@
     export const view = writable<string>(null);
 
     const views = {
-        aboutme: AboutMe,
+        "about me": AboutMe,
         projects: Projects,
-        commissions: Commissions,
+        // commissions: Commissions,
         socials: Socials,
-        contact: Contact,
+        // contact: Contact,
     };
 </script>
 
@@ -35,8 +35,10 @@
         setTimeout(() => (showIntro = false), 1500);
         setTimeout(() => (showSite = true), 2000);
         setTimeout(() => {
-            const name = window.location.hash.slice(1) || 'aboutme';
-            if (name in buttons) set(name);
+            let name = window.location.hash.slice(1);
+            if (!(name in buttons)) name = "about me";
+
+            set(name);
         }, 2000);
     });
 
@@ -58,20 +60,14 @@
         </button>
 
         <div bind:this={div} class="buttons">
-            <Button name="aboutme">about me</Button>
-            <Button name="projects">projects</Button>
-            <Button name="commissions">commissions</Button>
-            <Button name="socials">socials</Button>
-            <Button name="contact">contact</Button>
+            {#each Object.keys(views) as name}
+                <Button {name}>{name}</Button>
+            {/each}
         </div>
 
         <div class="content">
             {#key $view}
-                <div
-                    class="view"
-                    in:fly={{ x: 50, duration: 200, delay: 400 }}
-                    out:fly={{ x: 50, duration: 200, delay: 200 }}
-                >
+                <div class="view" in:fly={{ x: 50, duration: 200, delay: 400 }} out:fly={{ x: 50, duration: 200 }}>
                     <svelte:component this={views[$view]} />
                 </div>
             {/key}
@@ -79,10 +75,7 @@
     </div>
 
     <footer transition:fade>
-        created by Solaris9 (Malachi Hargreaves) • <a
-            href="https://github.com/Solaris9/mhargreaves.site"
-            target="_blank">source on github.com</a
-        >
+        created by Solaris9 • <a href="https://github.com/Solaris9/mhargreaves.site" target="_blank">source</a>
     </footer>
 {/if}
 
@@ -127,13 +120,7 @@
     }
 
     .view {
-        margin: 75px 0 100px 50px;
-    }
-
-    @media only screen and (max-width: 700px) {
-        .view {
-            margin: 75px 0 0 -30px;
-        }
+        margin: 75px 50px 100px 50px;
     }
 
     .toggle {
@@ -141,15 +128,19 @@
     }
 
     @media only screen and (max-width: 700px) {
+        .view {
+            margin: 75px 0 0 -30px;
+        }
+
         .buttons {
             display: none;
         }
 
         .toggle {
+            right: 0;
+            position: absolute;
             display: block;
             z-index: 50;
-            margin: 10px 0 0 10px;
-            max-height: 42px;
 
             background-color: unset;
 
@@ -159,15 +150,24 @@
         }
 
         .content {
-            margin: unset;
+            margin: -50px 0 0 50px;
         }
 
         :global(body) {
             margin-right: 15px;
         }
+
+        footer {
+            padding-left: unset !important;
+            font-size: 1px;
+            text-align: center;
+            height: 50px;
+            padding-top: 20px;
+        }
     }
 
     footer {
+        padding-left: 175px;
         font-size: larger;
         text-align: center;
         height: 50px;

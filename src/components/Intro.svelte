@@ -6,11 +6,11 @@
     let titles = [
         "Hobbyist Programmer",
         "Backend Developer",
-        "Bad Frontend Developer lol",
+        "Bad Frontend Developer",
         "Furry",
         "Artist",
         "Canadian"
-    ]
+    ];
 
     if (!intro) setInterval(() => (index = ++index % titles.length), 2000)
 </script>
@@ -60,9 +60,11 @@
 
     .title {
         color: var(--fox-orange);
-        padding-bottom: 50px;
+        padding-bottom: 60px;
         font-size: 3rem;
-        max-height: 60px;
+        height: 70px;
+
+        overflow: hidden;
     }
 
     .mini {
@@ -71,17 +73,17 @@
 
     @media only screen and (max-width: 700px) {
         .header {
-            font-size: 2rem;
+            font-size: 1.75rem;
             font-weight: 600;
         }
 
         .title {
-            font-size: 1rem;
+            font-size: 1.5rem;
             max-height: 10px;
         }
 
         .mini {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
         }
     }
 </style>
