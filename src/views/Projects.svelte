@@ -40,7 +40,7 @@
 
                     <div class="links">
                         {#each links as [name, link], i}
-                            <a class="link" href="https://github.com/{link}">{name}</a>
+                            <a class="link" target="_blank" href="https://github.com/{link}">{name}</a>
                             {#if i != links.length - 1} • {/if}
                         {/each}
                     </div>
@@ -48,7 +48,7 @@
                     {#if collaborated}
                         <div class="text">
                             <Icon icon={faInfo} size="1x" color="var(--fox-orange)" style="padding-right: 10px" />
-                            I work with <a href="https://github.com/{collaborated}">@{collaborated}</a> on this project.
+                            I work with <a target="_blank" href="https://github.com/{collaborated}">@{collaborated}</a> on this project.
                         </div>
                     {/if}
                 </div>
