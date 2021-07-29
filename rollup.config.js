@@ -45,7 +45,7 @@ export default {
         !production && dev({
 			port: 5000,
 			dirs: ['public'],
-			spa: true
+			spa: "./public/404.html"
 		}),
 
 		production && terser()
