@@ -13,7 +13,7 @@
 
     const socials: [name: string, icon: IconDefinition, url: string | null][] = [
         ['Solaris9', faGithub, 'github.com/Solaris9'],
-        // ['Solaris#1234', faDiscord, null],
+        ['Solaris#7497', faDiscord, null],
         ['SolarisFox', faTelegram, 't.me/SolarisFox'],
         ['SolarisTheFox', faSteam, 'steamcommunity.com/id/SolarisTheFox'],
         ['solaris_fox', faTwitch, 'twitch.com/solaris_fox'],

@@ -6,7 +6,6 @@
     import Projects from './views/Projects.svelte';
     import Commissions from './views/Commissions.svelte';
     import Socials from './views/Socials.svelte';
-    import Contact from './views/Contact.svelte';
 
     export const view = writable<string>(null);
 
