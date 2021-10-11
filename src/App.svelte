@@ -12,7 +12,7 @@
     const views = {
         'about me': AboutMe,
         projects: Projects,
-        // commissions: Commissions,
+        commissions: Commissions,
         socials: Socials,
         // contact: Contact,
     };

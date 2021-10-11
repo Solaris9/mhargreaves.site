@@ -15,7 +15,10 @@
             name: 'Erela.JS',
             image: 'https://avatars.githubusercontent.com/u/86129959?s=200&v=4',
             collaborated: 'MenuDocs',
-            links: [['Github', 'https://github.com/Erela.JS'], ['Documentation', 'https://erelajs-docs.netlify.app/']],
+            links: [
+                ['Github', 'https://github.com/Erela.JS'],
+                ['Documentation', 'https://erelajs-docs.netlify.app/'],
+            ],
             description: [
                 'Erela.JS is a audio client for Discord built with user simplicity in mind',
                 'it uses audio providers, those being Lavalink or FFMPEG to handle audio',
@@ -40,7 +43,7 @@
 
                     <div class="links">
                         {#each links as [name, link], i}
-                            <a class="link" target="_blank" href="{link}">{name}</a>
+                            <a class="link" target="_blank" href={link}>{name}</a>
                             {#if i != links.length - 1} • {/if}
                         {/each}
                     </div>
@@ -48,7 +51,8 @@
                     {#if collaborated}
                         <div class="text">
                             <Icon icon={faInfo} size="1x" color="var(--fox-orange)" style="padding-right: 10px" />
-                            I work with <a target="_blank" href="https://github.com/{collaborated}">@{collaborated}</a> on this project.
+                            I work with <a target="_blank" href="https://github.com/{collaborated}">@{collaborated}</a> on
+                            this project.
                         </div>
                     {/if}
                 </div>

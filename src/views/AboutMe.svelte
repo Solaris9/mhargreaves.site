@@ -8,24 +8,16 @@
     const descriptions: Description[] = [
         {
             list: [
-                `I'm a ${age} year old living on Vancouver Island in British Columbia, Canada`,
+                `I'm a ${age} year old living in Vancouver, British Columbia, Canada`,
                 'I started this programming journey back around 2013 with Python and for some reason Batch',
                 'Then I was mostly tinkering with text based games but being very basic',
-                'In 2017 I found Node.JS and started to learn JavaScript, first with Discord.JS as bots were popular at the time',
+                'In 2017 I found Node.JS and started to learn JavaScript, first with Discord.JS as discord bots were popular at the time',
                 "Since then I've been learning new languages, libraries and frameworks",
                 'Moving on to learning more Python, TypeScript, HTML, Java and then Kotlin which I mainly use (other than JS for obvious reason)',
-                "I've also tried other languages such as Rust and the C languages C, C++ and C# but not getting much success from those",
                 'Two careers I wish to be in is game development with C# and web development creating full fledge websites',
                 'Along with the backend should either require.',
                 'In all said, programming has been very fun and enjoyable to learn',
                 'I plan to continue to expand my knowledge of it',
-            ],
-        },
-        {
-            name: 'the site',
-            list: [
-                "I'll be honest, I've used quite a few hacky solutions to make this site work",
-                'you can find the source below on the footer',
             ],
         },
     ];
