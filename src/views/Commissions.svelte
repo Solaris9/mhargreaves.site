@@ -104,4 +104,21 @@
         border: 1px solid black;
         border-radius: 10px;
     }
+
+    @media only screen and (max-width: 700px) {
+        .header {
+            font-size: x-large;
+            padding-bottom: 20px;
+        }
+
+        .title {
+            font-size: x-large;
+            padding-top: 20px;
+        }
+
+        .text {
+            font-size: large;
+            padding: 5px 0 5px 0;
+        }
+    }
 </style>

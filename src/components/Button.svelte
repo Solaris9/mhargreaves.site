@@ -61,20 +61,10 @@
         cursor: default;
     }
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 700px) {
         button {
-            font-size: x-small;
-            text-decoration: unset;
-
-            border-radius: unset;
-            border: unset;
-            margin: unset;
-
-            text-align: center;
-            justify-content: center;
-
-            background-color: grey;
-            color: unset;
+            min-width: 25%;
+            font-size: small;
         }
     }
 </style>

@@ -48,7 +48,7 @@
     .header {
         font-size: 2.5rem;
         font-weight: 500;
-        padding-bottom: 50px;
+        padding-bottom: 75px;
     }
 
     .name {
@@ -67,6 +67,7 @@
         display: flex;
 
         width: 200px;
+        padding-bottom: 20px;
 
         justify-content: center;
         flex-direction: column;
@@ -74,7 +75,7 @@
     }
 
     .icon {
-        padding-bottom: 25px;
+        padding-bottom: 15px;
     }
 
     a,
@@ -87,5 +88,25 @@
     a:hover {
         color: var(--fox-orange);
         transition: color 0.2s ease;
+    }
+
+    @media only screen and (max-width: 700px) {
+        .header {
+            font-size: x-large;
+            padding-bottom: 20px;
+        }
+        
+        .name {
+            font-size: large;
+            padding: 5px 0 5px 0;
+        }
+
+        .socials {
+            justify-content: center;
+        }
+
+        .social {
+            width: 150px;
+        }
     }
 </style>

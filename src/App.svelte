@@ -22,9 +22,6 @@
     import { onMount } from 'svelte';
     import { fade, fly } from 'svelte/transition';
 
-    import Icon from 'svelte-fa';
-    import { faBars } from '@fortawesome/free-solid-svg-icons';
-
     import Intro from './components/Intro.svelte';
 
     let showIntro = true;
@@ -40,12 +37,6 @@
             set(name);
         }, 2000);
     });
-
-    let div: HTMLElement;
-
-    function openButtons() {
-        div.style.display = div.style.display == 'flex' ? 'none' : 'flex';
-    }
 </script>
 
 {#if showIntro}
@@ -54,11 +45,7 @@
 
 {#if showSite}
     <div class="main" transition:fade>
-        <button class="toggle" on:click={openButtons}>
-            <Icon icon={faBars} size="2x" />
-        </button>
-
-        <div bind:this={div} class="buttons">
+        <div class="buttons">
             {#each Object.keys(views) as name}
                 <Button {name}>{name}</Button>
             {/each}
@@ -122,30 +109,16 @@
         margin: 75px 50px 100px 50px;
     }
 
-    .toggle {
-        display: none;
-    }
-
     @media only screen and (max-width: 700px) {
         .view {
-            margin: 75px 0 0 -30px;
+            margin: 125px 0 0 -30px;
         }
 
         .buttons {
-            display: none;
-        }
-
-        .toggle {
-            right: 0;
-            position: absolute;
-            display: block;
-            z-index: 50;
-
-            background-color: unset;
-
-            border-radius: 7px;
-            border: 2px solid black;
-            box-shadow: 2px 2px 2px grey;
+            width: 100%;
+            max-width: 100vw;
+            flex-direction: row;
+            height: 50px;
         }
 
         .content {

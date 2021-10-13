@@ -139,4 +139,33 @@
         padding: 0.5rem 0 0.5rem 1rem;
         margin-left: 10px;
     }
+
+    @media only screen and (max-width: 700px) {
+        .image {
+            width: 85px;
+            height: 85px;
+            border-radius: 20px;
+            margin-right: 15px;
+        }
+
+        .header {
+            font-size: large;
+            padding-bottom: 15px;
+        }
+
+        .name {
+            font-size: 1.2rem;
+            padding-bottom: unset;
+        }
+
+        .links {
+            padding-top: unset;
+        }
+
+        .text,
+        .link,
+        .info .text {
+            font-size: 1rem;
+        }
+    }
 </style>
