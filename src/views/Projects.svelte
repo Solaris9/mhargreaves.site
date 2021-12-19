@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="ts" context="module">
     import Icon from 'svelte-fa';
     import { faInfo } from '@fortawesome/free-solid-svg-icons';
 
@@ -10,64 +10,45 @@
         links: [display: string, link: string][];
     };
 
-    const projects: Project[] = [
-        {
-            name: 'Erela.JS',
-            image: 'https://avatars.githubusercontent.com/u/86129959?s=200&v=4',
-            collaborated: 'MenuDocs',
-            links: [
-                ['Github', 'https://github.com/Erela.JS'],
-                ['Documentation', 'https://erelajs-docs.netlify.app/'],
-            ],
-            description: [
-                'Erela.JS is a audio client for Discord built with user simplicity in mind',
-                'it uses audio providers, those being Lavalink or FFMPEG to handle audio',
-                "this let's you choose how you want to scale your bot while keeping a standard.",
-                'Erela.JS is also very configurable, it offers many events, plugins, and audio sources',
-                'those being third party music platforms, Spotify or Deezer.',
-            ],
-        },
-    ];
+    const projects: Project[] = [];
+
+    export const canDisplayProjects = () => projects.length > 0;
 </script>
 
-{#if projects.length}
-    <div class="header">These are my active projects or projects I collaborate on</div>
+<div class="header">These are my active projects or projects I collaborate on</div>
 
-    {#each projects as { name, description, links, collaborated, image }}
-        <div class="project">
-            <div class="info">
-                <img class="image" src={image} alt={name} />
+{#each projects as { name, description, links, collaborated, image }}
+    <div class="project">
+        <div class="info">
+            <img class="image" src={image} alt={name} />
 
-                <div>
-                    <div class="name">{name}</div>
+            <div>
+                <div class="name">{name}</div>
 
-                    <div class="links">
-                        {#each links as [name, link], i}
-                            <a class="link" target="_blank" href={link}>{name}</a>
-                            {#if i != links.length - 1} • {/if}
-                        {/each}
-                    </div>
-
-                    {#if collaborated}
-                        <div class="text">
-                            <Icon icon={faInfo} size="1x" color="var(--fox-orange)" style="padding-right: 10px" />
-                            I work with <a target="_blank" href="https://github.com/{collaborated}">@{collaborated}</a> on
-                            this project.
-                        </div>
-                    {/if}
+                <div class="links">
+                    {#each links as [name, link], i}
+                        <a class="link" target="_blank" href={link}>{name}</a>
+                        {#if i != links.length - 1} • {/if}
+                    {/each}
                 </div>
-            </div>
 
-            <div class="quote">
-                {#each description as text}
-                    <div class="text">{text}</div>
-                {/each}
+                {#if collaborated}
+                    <div class="text">
+                        <Icon icon={faInfo} size="1x" color="var(--fox-orange)" style="padding-right: 10px" />
+                        I work with <a target="_blank" href="https://github.com/{collaborated}">@{collaborated}</a> on
+                        this project.
+                    </div>
+                {/if}
             </div>
         </div>
-    {/each}
-{:else}
-    <div class="header">Sorry, but I have no active projects :(</div>
-{/if}
+
+        <div class="quote">
+            {#each description as text}
+                <div class="text">{text}</div>
+            {/each}
+        </div>
+    </div>
+{/each}
 
 <style>
     .image {

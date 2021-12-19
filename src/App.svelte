@@ -3,7 +3,7 @@
     import Button, { buttons, set } from './components/Button.svelte';
 
     import AboutMe from './views/AboutMe.svelte';
-    import Projects from './views/Projects.svelte';
+    import Projects, { canDisplayProjects } from './views/Projects.svelte';
     import Commissions from './views/Commissions.svelte';
     import Socials from './views/Socials.svelte';
 
@@ -11,11 +11,11 @@
 
     const views = {
         'about me': AboutMe,
-        projects: Projects,
         commissions: Commissions,
         socials: Socials,
-        // contact: Contact,
     };
+
+    if (canDisplayProjects()) views["projects"] = Projects
 </script>
 
 <script lang="ts">
@@ -53,7 +53,9 @@
 
         <div class="content">
             {#key $view}
-                <div class="view" in:fly={{ x: 50, duration: 200, delay: 400 }} out:fly={{ x: 50, duration: 200 }}>
+                <div class="view"
+                    in:fly={{ x: 50, duration: 200, delay: 400 }}
+                    out:fly={{ x: 50, duration: 200 }}>
                     <svelte:component this={views[$view]} />
                 </div>
             {/key}
@@ -106,7 +108,7 @@
     }
 
     .view {
-        margin: 75px 50px 100px 50px;
+        margin: 75px 50px 80px 50px;
     }
 
     @media only screen and (max-width: 700px) {

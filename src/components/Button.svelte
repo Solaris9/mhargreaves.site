@@ -34,6 +34,7 @@
     button {
         font-size: x-large;
         text-decoration: unset;
+        -webkit-appearance: none;
 
         border-radius: unset;
         border: unset;

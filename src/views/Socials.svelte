@@ -30,13 +30,13 @@
             {#if url}
                 <a href="https://{url}" target="_blank">
                     <div class="icon">
-                        <Icon {icon} size="7x" />
+                        <Icon {icon} size="6x" />
                     </div>
                     <div class="name">@{name}</div>
                 </a>
             {:else}
                 <div class="icon">
-                    <Icon {icon} size="7x" />
+                    <Icon {icon} size="6x" />
                 </div>
                 <div class="name">@{name}</div>
             {/if}
@@ -52,7 +52,7 @@
     }
 
     .name {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         font-weight: 500;
         padding-bottom: 20px;
     }
@@ -66,7 +66,7 @@
     .social {
         display: flex;
 
-        width: 200px;
+        width: 170px;
         padding-bottom: 20px;
 
         justify-content: center;
