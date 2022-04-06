@@ -62,10 +62,16 @@
         cursor: default;
     }
 
-    @media only screen and (max-width: 700px) {
+    @media only screen and (max-width: 600px) {
         button {
-            min-width: 25%;
-            font-size: small;
+            font-size: medium;
+        }
+    }
+
+    @media only screen and (max-width: 1080px) {
+        button {
+            min-width: unset;
+            width: 100%;
         }
     }
 </style>

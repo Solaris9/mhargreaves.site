@@ -1,14 +1,20 @@
 <script lang="ts">
-    import { fade, fly } from 'svelte/transition';
+    import { onDestroy } from 'svelte';
+    // import { fade, fly } from 'svelte/transition';
+
     export let intro = true;
 
+    let interval: number;
     let index = 0;
-    let titles = ['Hobbyist Programmer', 'Backend Developer', 'Frontend Developer', 'Furry', /*'Artist',*/ 'Canadian'];
+    let titles = ['Hobbyist Programmer', 'Backend Developer', 'Frontend Developer', 'Canadian'];
 
-    if (!intro) setInterval(() => (index = ++index % titles.length), 2000);
+    if (!intro) {
+        interval = setInterval(() => (index = ++index % titles.length), 2000);
+        onDestroy(() => clearInterval(interval));
+    }
 </script>
 
-<div class:intro transition:fade>
+<div class:intro>
     <div class:inner={intro}>
         <div class="mini">Hi, I'm</div>
         <div class="header orange">Malachi Hargreaves</div>
@@ -19,9 +25,12 @@
                 {titles[index]}
             {:else}
                 {#key index}
-                    <div in:fly={{ x: 50, delay: 250, duration: 250 }} out:fly={{ x: -50, duration: 250 }}>
+                    <!-- <div
+                        in:fly={{ x: 50, delay: 250, duration: 250 }}
+                        out:fly={{ x: -50, duration: 250 }}>
                         {titles[index]}
-                    </div>
+                    </div> -->
+                    <div>{titles[index]}</div>
                 {/key}
             {/if}
         </div>

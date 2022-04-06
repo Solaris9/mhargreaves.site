@@ -1,4 +1,5 @@
 <script lang="ts" context="module">
+    import type { SvelteComponent } from 'svelte';
     import { writable } from 'svelte/store';
     import Button, { buttons, set } from './components/Button.svelte';
 
@@ -9,13 +10,13 @@
 
     export const view = writable<string>(null);
 
-    const views = {
+    const views: Record<string, typeof SvelteComponent> = {
         'about me': AboutMe,
         commissions: Commissions,
         socials: Socials,
     };
 
-    if (canDisplayProjects()) views["projects"] = Projects
+    if (canDisplayProjects()) views["projects"] = Projects;
 </script>
 
 <script lang="ts">
@@ -54,8 +55,8 @@
         <div class="content">
             {#key $view}
                 <div class="view"
-                    in:fly={{ x: 50, duration: 200, delay: 400 }}
-                    out:fly={{ x: 50, duration: 200 }}>
+                    in:fly={{ x: 50, duration: 150, delay: 150 }}
+                    out:fly={{ x: 50, duration: 150 }}>
                     <svelte:component this={views[$view]} />
                 </div>
             {/key}
@@ -111,7 +112,7 @@
         margin: 75px 50px 80px 50px;
     }
 
-    @media only screen and (max-width: 700px) {
+    @media only screen and (max-width: 1080px) {
         .view {
             margin: 125px 0 0 -30px;
         }

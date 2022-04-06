@@ -3,9 +3,7 @@
 
     const age = new Date().getFullYear() - new Date(2001, 5, 9).getFullYear();
 
-    type Description = { name?: String; list: string[] };
-
-    const descriptions: Description[] = [
+    const descriptions: { name?: String; list: string[] }[] = [
         {
             list: [
                 `I'm a ${age} year old living in Vancouver, British Columbia, Canada`,
